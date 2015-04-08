@@ -1,5 +1,7 @@
 package org.stjs.bridge.react;
 
+import org.stjs.javascript.annotation.SyntheticType;
+
 /**
  * Currently:
  * - The order that these are listed in the transaction is critical:
@@ -12,6 +14,7 @@ package org.stjs.bridge.react;
  * - Implement/integrate with customized constraint based layout system and keep
  * track of which dimensions must be remeasured.
  */
+@SyntheticType
 public class ReactReconcileTransaction extends Transaction {
 
     public enum TRANSACTION_WRAPPERS {

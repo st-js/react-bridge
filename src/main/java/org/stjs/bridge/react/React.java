@@ -1,10 +1,8 @@
 package org.stjs.bridge.react;
 
 import org.stjs.javascript.Map;
-import org.stjs.javascript.annotation.STJSBridge;
 import org.stjs.javascript.dom.Element;
 
-@STJSBridge
 public class React {
 
     public static class Children {
@@ -39,12 +37,12 @@ public class React {
     //TODO :: finish signature
     public static native void initializeTouchEvents(boolean shouldUseTouch);
 
-    public native static <V extends ReactClassInterface> ReactClass createClass(V description);
+    public native static ReactClass createClass(Map<String, Object> description);
 
-    public static native ReactElement createElement(ReactClass clazz, Map<String, Object> props);
-    public static native ReactElement createElement(String element, Map<String, Object> props);
-    public static native ReactElement createElement(ReactClass clazz, Map<String, Object> props, Object... children);
-    public static native ReactElement createElement(String element, Map<String, Object> props, Object... children);
+    public static native ReactElement createElement(ReactClass clazz, Object props);
+    public static native ReactElement createElement(String element, Object props);
+    public static native ReactElement createElement(ReactClass clazz, Object props, Object... children);
+    public static native ReactElement createElement(String element, Object props, Object... children);
 
     //TODO :: finish signature
     public static native ReactElement cloneElement();

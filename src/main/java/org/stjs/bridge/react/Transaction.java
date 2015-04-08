@@ -1,5 +1,6 @@
 package org.stjs.bridge.react;
 
+import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.functions.Function;
 import org.stjs.javascript.functions.Function0;
 
@@ -58,6 +59,7 @@ import org.stjs.javascript.functions.Function0;
  * - and a `close` method that accepts the precomputation. `close` is invoked
  * when the wrapped process is completed, or has failed.
  */
+@SyntheticType
 public abstract class Transaction {
     /**
      * @return {array<object>} List of operation wrap proceedures.

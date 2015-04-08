@@ -2,12 +2,16 @@ package org.stjs.bridge.react;
 
 import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
+import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Function0;
 
-public abstract class ReactClassInterface extends ReactClassComponent {
+@SyntheticType
+public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
     protected Object context;
-    protected Map<String, Object> props;
+
+    protected P props;
+    protected S state;
 
     public String displayName;
 
@@ -51,7 +55,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * on `this.state` or use `this.setState`.
      */
     //TODO :: finish signature
-    protected Object getDefaultProps() {
+    public Object getDefaultProps() {
         return null;
     }
 
@@ -67,12 +71,12 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      *   }
      */
     //TODO :: finish signature
-    protected Object getInitialState() {
+    public Object getInitialState() {
         return null;
     }
 
     //TODO :: finish signature
-    protected Object getChildContext() {
+    public Object getChildContext() {
         return null;
     }
 
@@ -95,7 +99,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * This may have side effects, but any external subscriptions or data created
      * by this method must be cleaned up in `componentWillUnmount`.
      */
-    protected void componentWillMount() {
+    public void componentWillMount() {
 
     }
 
@@ -108,7 +112,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      *
      * @param element rootNode DOM element representing the component.
      */
-    protected void componentDidMount(Element element) {
+    public void componentDidMount(Element element) {
 
     }
 
@@ -128,8 +132,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * transition may cause a state change, but the opposite is not true. If you
      * need it, you are probably looking for `componentWillUpdate`.
      */
-    //TODO :: finish signature
-    protected void componentWillReceiveProps(Object nextProps) {
+    public void componentWillReceiveProps(P nextProps) {
 
     }
 
@@ -153,7 +156,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * @return True if the component should update.
      */
     //TODO :: finish signature
-    protected boolean shouldComponentUpdate(Object nextProps, Object nextState, Object nextContext) {
+    public boolean shouldComponentUpdate(P nextProps, S nextState, Object nextContext) {
         return true;
     }
 
@@ -172,7 +175,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * @param transaction
      */
     //TODO :: finish signature
-    protected boolean componentWillUpdate(Object nextProps, Object nextState, Object nextContext, ReactReconcileTransaction transaction) {
+    public boolean componentWillUpdate(P nextProps, S nextState, Object nextContext, ReactReconcileTransaction transaction) {
         return true;
     }
 
@@ -188,7 +191,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * @param rootNode DOM element representing the component.
      */
     //TODO :: finish signature
-    protected void componentDidUpdate(Object prevProps, Object prevState, Object prevContext, Element rootNode) {
+    public void componentDidUpdate(P prevProps, S prevState, Object prevContext, Element rootNode) {
 
     }
 
@@ -202,7 +205,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      * destroyed by that point.
      */
     //TODO :: finish signature
-    protected void componentWillUnmount() {
+    public void componentWillUnmount() {
 
     }
 
@@ -214,7 +217,7 @@ public abstract class ReactClassInterface extends ReactClassComponent {
      *
      */
     //TODO :: finish signature
-    protected void updateComponent(ReactReconcileTransaction transacton) {
+    public void updateComponent(ReactReconcileTransaction transacton) {
 
     }
 }

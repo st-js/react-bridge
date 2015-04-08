@@ -1,7 +1,9 @@
 package org.stjs.bridge.react;
 
+import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.functions.Callback0;
 
+@SyntheticType
 public abstract class ReactClassComponent {
 
     //BEGIN ReactComponent
