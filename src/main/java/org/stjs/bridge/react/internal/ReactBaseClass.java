@@ -1,10 +1,8 @@
-package org.stjs.bridge.react;
+package org.stjs.bridge.react.internal;
 
-import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.functions.Callback0;
 
-@SyntheticType
-public abstract class ReactClassComponent {
+public abstract class ReactBaseClass<P extends Props, S extends State> {
 
     //BEGIN ReactComponent
     /**
@@ -30,12 +28,12 @@ public abstract class ReactClassComponent {
      *        produce next partial state to be merged with current state.
      * @param callback Called after state is updated.
      */
-    protected void setState(Object partialState, Callback0 callback) {
+    protected void setState(S partialState, Callback0 callback) {
         //Will be replaced on runtime
     }
 
-    protected void setState(Object partialState) {
-
+    protected void setState(S partialState) {
+        //Will be replaced on runtime
     }
 
     /**
@@ -60,7 +58,7 @@ public abstract class ReactClassComponent {
      * TODO: This will be deprecated because state should always keep a consistent
      * type signature and the only use case for this, is to avoid that.
      */
-    protected void replaceState(Object newState, Callback0 callback) {
+    protected void replaceState(S newState, Callback0 callback) {
         //Will be replaced on runtime
     }
 
@@ -80,7 +78,7 @@ public abstract class ReactClassComponent {
      * @param callback Called after props are updated.
      * @deprecated
      */
-    public native void setProps(Object partialProps, Callback0 callback);
+    public native void setProps(P partialProps, Callback0 callback);
 
     /**
      * Replace all the props.
@@ -89,7 +87,7 @@ public abstract class ReactClassComponent {
      * @param callback Called after props are updated.
      * @deprecated
      */
-    public native void replaceProps(Object newProps, Callback0 callback);
+    public native void replaceProps(P newProps, Callback0 callback);
 
     //END ReactClassMixin
 }

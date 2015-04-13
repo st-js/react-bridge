@@ -1,8 +1,6 @@
-package org.stjs.bridge.react;
+package org.stjs.bridge.react.internal;
 
-import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.functions.Function;
-import org.stjs.javascript.functions.Function0;
 
 /**
  * `Transaction` creates a black box that is able to wrap any method such that
@@ -17,28 +15,28 @@ import org.stjs.javascript.functions.Function0;
  * they only require implementing two methods.
  *
  * <pre>
- * wrappers (injected at creation time)
- * + +
- * | |
- * +-----------------|--------|--------------+
- * | v | |
- * | +---------------+ | |
- * | +--| wrapper1 |---|----+ |
- * | | +---------------+ v | |
- * | | +-------------+ | |
- * | | +----| wrapper2 |--------+ |
- * | | | +-------------+ | | |
- * | | | | | |
- * | v v v v | wrapper
- * | +---+ +---+ +---------+ +---+ +---+ | invariants
- * perform(anyMethod) | | | | | | | | | | | | maintained
+ *                       wrappers (injected at creation time)
+ *                                      +        +
+ *                                      |        |
+ *                    +-----------------|--------|--------------+
+ *                    |                 v        |              |
+ *                    |      +---------------+   |              |
+ *                    |   +--|    wrapper1   |---|----+         |
+ *                    |   |  +---------------+   v    |         |
+ *                    |   |          +-------------+  |         |
+ *                    |   |     +----|   wrapper2  |--------+   |
+ *                    |   |     |    +-------------+  |     |   |
+ *                    |   |     |                     |     |   |
+ *                    |   v     v                     v     v   | wrapper
+ *                    | +---+ +---+   +---------+   +---+ +---+ | invariants
+ * perform(anyMethod) | |   | |   |   |         |   |   | |   | | maintained
  * +----------------->|-|---|-|---|-->|anyMethod|---|---|-|---|-|-------->
- * | | | | | | | | | | | |
- * | | | | | | | | | | | |
- * | | | | | | | | | | | |
- * | +---+ +---+ +---------+ +---+ +---+ |
- * | initialize close |
- * +-----------------------------------------+
+ *                    | |   | |   |   |         |   |   | |   | |
+ *                    | |   | |   |   |         |   |   | |   | |
+ *                    | |   | |   |   |         |   |   | |   | |
+ *                    | +---+ +---+   +---------+   +---+ +---+ |
+ *                    |  initialize                    close    |
+ *                    +-----------------------------------------+
  * </pre>
  *
  * Use cases:
@@ -59,7 +57,6 @@ import org.stjs.javascript.functions.Function0;
  * - and a `close` method that accepts the precomputation. `close` is invoked
  * when the wrapped process is completed, or has failed.
  */
-@SyntheticType
 public abstract class Transaction {
     /**
      * @return {array<object>} List of operation wrap proceedures.
@@ -89,9 +86,7 @@ public abstract class Transaction {
      * Helps prevent need to bind in many cases.
      * @return Return value from `method`.
      */
-    //TODO :: fix generics
-    //public native <T extends Function<R>> R perform(T method, Object scope, Object... args);
-    public native <T> T perform(Function0<T> method, Object scope);
+    public native <R, T extends Function<R>> R perform(T method, Object scope, Object... args);
 
     public native void initializeAll(Integer startIndex);
 

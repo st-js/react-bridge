@@ -6,17 +6,17 @@ The STJS bridge to Facebook's React JS gives you access to this great library us
 ```java
 @SyntheticType
 @STJSBridge
-public class HelloMessageProps {
+public class HelloMessageProps extends Props{
     public String name;
 }
 
-@IsReact
-public class HelloMessage extends ReactClassInterface<HelloMessageProps, Object> {
+@IsReactClass
+public class HelloMessage extends ReactClass<HelloMessageProps, State> {
 
     public String displayName = "HelloMessage";
 
     @Override
-    public ReactElement render() {
+    public ReactElement<?> render() {
         return React.createElement("div", null, "Hello ", this.props.name);
     }
 }
@@ -31,7 +31,8 @@ React.render(React.createElement(HelloMessage, new HelloMessageProps() {{ name =
 
 ```
 <annotations>
-    <annotation>IsReact</annotation>
+    <annotation>IsReactClass</annotation>
+    <annotation>IsReactMixin</annotation>
 </annotations>
 ```
 

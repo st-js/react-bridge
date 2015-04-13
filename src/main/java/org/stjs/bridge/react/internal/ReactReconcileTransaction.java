@@ -1,6 +1,4 @@
-package org.stjs.bridge.react;
-
-import org.stjs.javascript.annotation.SyntheticType;
+package org.stjs.bridge.react.internal;
 
 /**
  * Currently:
@@ -14,7 +12,6 @@ import org.stjs.javascript.annotation.SyntheticType;
  * - Implement/integrate with customized constraint based layout system and keep
  * track of which dimensions must be remeasured.
  */
-@SyntheticType
 public class ReactReconcileTransaction extends Transaction {
 
     public enum TRANSACTION_WRAPPERS {

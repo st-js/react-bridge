@@ -1,51 +1,45 @@
-package org.stjs.bridge.react;
+package org.stjs.bridge.react.internal;
 
 import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
-import org.stjs.javascript.annotation.SyntheticType;
 import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Function0;
 
-@SyntheticType
-public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
+public class ReactClassInterface<P extends Props, S extends State> extends ReactBaseClass<P, S> {
     protected Object context;
 
     protected P props;
     protected S state;
 
-    public String displayName;
-
     /**
      * An array of Mixin objects to include when defining your component.
      */
-    //TODO :: finish signature
-    public Array<Class> mixins;
+    public Array<Class<? extends ReactMixin>> mixins;
 
     /**
      * An object containing properties and methods that should be defined on
      * the component's constructor instead of its prototype (static methods).
      */
-    //TODO :: finish signature
+    @Deprecated
     public Map<String, Function0> statics;
 
     /**
      * Definition of prop types for this component.
      */
-    //TODO :: finish signature
+    @Deprecated
     public Map<String, String> propTypes;
 
     /**
      * Definition of context types for this component.
      */
-    //TODO :: finish signature
+    @Deprecated
     public Map<String, String> contextTypes;
 
     /**
      * Definition of context types this component sets for its children.
      */
-    //TODO :: finish signature
+    @Deprecated
     public Map<String, String> childContextTypes;
-
 
     /**
      * Invoked when the component is mounted. Values in the mapping will be set on
@@ -54,10 +48,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * This method is invoked before `getInitialState` and therefore cannot rely
      * on `this.state` or use `this.setState`.
      */
-    //TODO :: finish signature
-    public Object getDefaultProps() {
-        return null;
-    }
+    public native P getDefaultProps();
 
     /**
      * Invoked once before the component is mounted. The return value will be used
@@ -70,38 +61,20 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      *     }
      *   }
      */
-    //TODO :: finish signature
-    public Object getInitialState() {
-        return null;
-    }
-
-    //TODO :: finish signature
-    public Object getChildContext() {
-        return null;
-    }
+    public native S getInitialState();
 
     /**
-     * Uses props from `this.props` and state from `this.state` to render the
-     * structure of the component.
-     *
-     * No guarantees are made about when or how often this method is invoked, so
-     * it must not have side effects.
-     *
-     *   render: function() {
-     *     var name = this.props.name;
-     *     return <div>Hello, {name}!</div>;
-     *   }
+     * Context is an object shared between all Components
      */
-    public abstract ReactElement render();
+    public native Context getChildContext();
+
 
     /**
      * Invoked when the component is initially created and about to be mounted.
      * This may have side effects, but any external subscriptions or data created
      * by this method must be cleaned up in `componentWillUnmount`.
      */
-    public void componentWillMount() {
-
-    }
+    public native void componentWillMount();
 
     /**
      * Invoked when the component has been mounted and has a DOM representation.
@@ -112,9 +85,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      *
      * @param element rootNode DOM element representing the component.
      */
-    public void componentDidMount(Element element) {
-
-    }
+    public native void componentDidMount(Element element);
 
     /**
      * Invoked before the component receives new props.
@@ -132,9 +103,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * transition may cause a state change, but the opposite is not true. If you
      * need it, you are probably looking for `componentWillUpdate`.
      */
-    public void componentWillReceiveProps(P nextProps) {
-
-    }
+    public native void componentWillReceiveProps(P nextProps);
 
     /**
      * Invoked while deciding if the component should be updated as a result of
@@ -155,10 +124,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * @param nextContext
      * @return True if the component should update.
      */
-    //TODO :: finish signature
-    public boolean shouldComponentUpdate(P nextProps, S nextState, Object nextContext) {
-        return true;
-    }
+    public native boolean shouldComponentUpdate(P nextProps, S nextState, Context nextContext);
 
     /**
      * Invoked when the component is about to update due to a transition from
@@ -174,10 +140,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * @param nextContext
      * @param transaction
      */
-    //TODO :: finish signature
-    public boolean componentWillUpdate(P nextProps, S nextState, Object nextContext, ReactReconcileTransaction transaction) {
-        return true;
-    }
+    public native boolean componentWillUpdate(P nextProps, S nextState, Context nextContext, ReactReconcileTransaction transaction);
 
     /**
      * Invoked when the component's DOM representation has been updated.
@@ -190,10 +153,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * @param prevContext
      * @param rootNode DOM element representing the component.
      */
-    //TODO :: finish signature
-    public void componentDidUpdate(P prevProps, S prevState, Object prevContext, Element rootNode) {
-
-    }
+    public native void componentDidUpdate(P prevProps, S prevState, Context prevContext, Element rootNode);
 
     /**
      * Invoked when the component is about to be removed from its parent and have
@@ -204,10 +164,7 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * NOTE: There is no `componentDidUnmount` since your component will have been
      * destroyed by that point.
      */
-    //TODO :: finish signature
-    public void componentWillUnmount() {
-
-    }
+    public native void componentWillUnmount();
 
     /**
      * Updates the component's currently mounted DOM representation.
@@ -216,8 +173,5 @@ public abstract class ReactClassInterface<P, S> extends ReactClassComponent {
      * Sophisticated clients may wish to override this.
      *
      */
-    //TODO :: finish signature
-    public void updateComponent(ReactReconcileTransaction transacton) {
-
-    }
+    public native void updateComponent(ReactReconcileTransaction transacton);
 }
