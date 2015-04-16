@@ -4,18 +4,14 @@
     var oldExtend = stjs.extend;
 
     stjs.extend = function() {
-        var initClass = oldExtend.call(this, arguments);
+        var initClass = oldExtend.apply(null, arguments);
 
-        if (stjs.getTypeAnnotation(initClass, "IsReactElement")) {
-            //console.log("is React !");
-            initClass = React.createClass(initClass);
+        if (stjs.getTypeAnnotation(initClass, "IsReactClass")) {
+            initClass = React.createClass(initClass.prototype);
         } else if (stjs.getTypeAnnotation(initClass, "IsReactMixin")) {
-            //console.log("is React !");
-            initClass = React.createMixin(initClass);
+            initClass = React.createMixin(initClass.prototype);
         }
 
         return initClass;
     };
 })();
-
-

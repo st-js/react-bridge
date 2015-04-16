@@ -104,12 +104,786 @@ public class React {
 	 */
 	public static native Element findDOMNode(ReactComponent<?> component);
 
-	//TODO :: finish signature
 	/**
 	 * React.DOM provides convenience wrappers around React.createElement for DOM components. These should only be used when not using JSX. For
 	 * example, React.DOM.div(null, 'Hello World!')
 	 */
 	public static class DOM {
+		public static native ReactElement<?> a();
+
+		public static native ReactElement<?> a(Map<String, String> attributes);
+
+		public static native ReactElement<?> a(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> abbr();
+
+		public static native ReactElement<?> abbr(Map<String, String> attributes);
+
+		public static native ReactElement<?> abbr(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> address();
+
+		public static native ReactElement<?> address(Map<String, String> attributes);
+
+		public static native ReactElement<?> address(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> area();
+
+		public static native ReactElement<?> area(Map<String, String> attributes);
+
+		public static native ReactElement<?> area(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> article();
+
+		public static native ReactElement<?> article(Map<String, String> attributes);
+
+		public static native ReactElement<?> article(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> aside();
+
+		public static native ReactElement<?> aside(Map<String, String> attributes);
+
+		public static native ReactElement<?> aside(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> audio();
+
+		public static native ReactElement<?> audio(Map<String, String> attributes);
+
+		public static native ReactElement<?> audio(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> b();
+
+		public static native ReactElement<?> b(Map<String, String> attributes);
+
+		public static native ReactElement<?> b(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> base();
+
+		public static native ReactElement<?> base(Map<String, String> attributes);
+
+		public static native ReactElement<?> base(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> bdi();
+
+		public static native ReactElement<?> bdi(Map<String, String> attributes);
+
+		public static native ReactElement<?> bdi(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> bdo();
+
+		public static native ReactElement<?> bdo(Map<String, String> attributes);
+
+		public static native ReactElement<?> bdo(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> big();
+
+		public static native ReactElement<?> big(Map<String, String> attributes);
+
+		public static native ReactElement<?> big(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> blockquote();
+
+		public static native ReactElement<?> blockquote(Map<String, String> attributes);
+
+		public static native ReactElement<?> blockquote(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> body();
+
+		public static native ReactElement<?> body(Map<String, String> attributes);
+
+		public static native ReactElement<?> body(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> br();
+
+		public static native ReactElement<?> br(Map<String, String> attributes);
+
+		public static native ReactElement<?> br(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> button();
+
+		public static native ReactElement<?> button(Map<String, String> attributes);
+
+		public static native ReactElement<?> button(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> canvas();
+
+		public static native ReactElement<?> canvas(Map<String, String> attributes);
+
+		public static native ReactElement<?> canvas(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> caption();
+
+		public static native ReactElement<?> caption(Map<String, String> attributes);
+
+		public static native ReactElement<?> caption(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> cite();
+
+		public static native ReactElement<?> cite(Map<String, String> attributes);
+
+		public static native ReactElement<?> cite(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> code();
+
+		public static native ReactElement<?> code(Map<String, String> attributes);
+
+		public static native ReactElement<?> code(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> col();
+
+		public static native ReactElement<?> col(Map<String, String> attributes);
+
+		public static native ReactElement<?> col(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> colgroup();
+
+		public static native ReactElement<?> colgroup(Map<String, String> attributes);
+
+		public static native ReactElement<?> colgroup(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> data();
+
+		public static native ReactElement<?> data(Map<String, String> attributes);
+
+		public static native ReactElement<?> data(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> datalist();
+
+		public static native ReactElement<?> datalist(Map<String, String> attributes);
+
+		public static native ReactElement<?> datalist(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> dd();
+
+		public static native ReactElement<?> dd(Map<String, String> attributes);
+
+		public static native ReactElement<?> dd(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> del();
+
+		public static native ReactElement<?> del(Map<String, String> attributes);
+
+		public static native ReactElement<?> del(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> details();
+
+		public static native ReactElement<?> details(Map<String, String> attributes);
+
+		public static native ReactElement<?> details(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> dfn();
+
+		public static native ReactElement<?> dfn(Map<String, String> attributes);
+
+		public static native ReactElement<?> dfn(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> dialog();
+
+		public static native ReactElement<?> dialog(Map<String, String> attributes);
+
+		public static native ReactElement<?> dialog(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> div();
+
+		public static native ReactElement<?> div(Map<String, String> attributes);
+
+		public static native ReactElement<?> div(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> dl();
+
+		public static native ReactElement<?> dl(Map<String, String> attributes);
+
+		public static native ReactElement<?> dl(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> dt();
+
+		public static native ReactElement<?> dt(Map<String, String> attributes);
+
+		public static native ReactElement<?> dt(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> em();
+
+		public static native ReactElement<?> em(Map<String, String> attributes);
+
+		public static native ReactElement<?> em(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> embed();
+
+		public static native ReactElement<?> embed(Map<String, String> attributes);
+
+		public static native ReactElement<?> embed(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> fieldset();
+
+		public static native ReactElement<?> fieldset(Map<String, String> attributes);
+
+		public static native ReactElement<?> fieldset(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> figcaption();
+
+		public static native ReactElement<?> figcaption(Map<String, String> attributes);
+
+		public static native ReactElement<?> figcaption(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> figure();
+
+		public static native ReactElement<?> figure(Map<String, String> attributes);
+
+		public static native ReactElement<?> figure(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> footer();
+
+		public static native ReactElement<?> footer(Map<String, String> attributes);
+
+		public static native ReactElement<?> footer(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> form();
+
+		public static native ReactElement<?> form(Map<String, String> attributes);
+
+		public static native ReactElement<?> form(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h1();
+
+		public static native ReactElement<?> h1(Map<String, String> attributes);
+
+		public static native ReactElement<?> h1(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h2();
+
+		public static native ReactElement<?> h2(Map<String, String> attributes);
+
+		public static native ReactElement<?> h2(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h3();
+
+		public static native ReactElement<?> h3(Map<String, String> attributes);
+
+		public static native ReactElement<?> h3(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h4();
+
+		public static native ReactElement<?> h4(Map<String, String> attributes);
+
+		public static native ReactElement<?> h4(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h5();
+
+		public static native ReactElement<?> h5(Map<String, String> attributes);
+
+		public static native ReactElement<?> h5(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> h6();
+
+		public static native ReactElement<?> h6(Map<String, String> attributes);
+
+		public static native ReactElement<?> h6(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> head();
+
+		public static native ReactElement<?> head(Map<String, String> attributes);
+
+		public static native ReactElement<?> head(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> header();
+
+		public static native ReactElement<?> header(Map<String, String> attributes);
+
+		public static native ReactElement<?> header(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> hr();
+
+		public static native ReactElement<?> hr(Map<String, String> attributes);
+
+		public static native ReactElement<?> hr(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> html();
+
+		public static native ReactElement<?> html(Map<String, String> attributes);
+
+		public static native ReactElement<?> html(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> i();
+
+		public static native ReactElement<?> i(Map<String, String> attributes);
+
+		public static native ReactElement<?> i(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> iframe();
+
+		public static native ReactElement<?> iframe(Map<String, String> attributes);
+
+		public static native ReactElement<?> iframe(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> img();
+
+		public static native ReactElement<?> img(Map<String, String> attributes);
+
+		public static native ReactElement<?> img(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> input();
+
+		public static native ReactElement<?> input(Map<String, String> attributes);
+
+		public static native ReactElement<?> input(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> ins();
+
+		public static native ReactElement<?> ins(Map<String, String> attributes);
+
+		public static native ReactElement<?> ins(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> kbd();
+
+		public static native ReactElement<?> kbd(Map<String, String> attributes);
+
+		public static native ReactElement<?> kbd(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> keygen();
+
+		public static native ReactElement<?> keygen(Map<String, String> attributes);
+
+		public static native ReactElement<?> keygen(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> label();
+
+		public static native ReactElement<?> label(Map<String, String> attributes);
+
+		public static native ReactElement<?> label(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> legend();
+
+		public static native ReactElement<?> legend(Map<String, String> attributes);
+
+		public static native ReactElement<?> legend(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> li();
+
+		public static native ReactElement<?> li(Map<String, String> attributes);
+
+		public static native ReactElement<?> li(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> link();
+
+		public static native ReactElement<?> link(Map<String, String> attributes);
+
+		public static native ReactElement<?> link(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> main();
+
+		public static native ReactElement<?> main(Map<String, String> attributes);
+
+		public static native ReactElement<?> main(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> map();
+
+		public static native ReactElement<?> map(Map<String, String> attributes);
+
+		public static native ReactElement<?> map(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> mark();
+
+		public static native ReactElement<?> mark(Map<String, String> attributes);
+
+		public static native ReactElement<?> mark(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> menu();
+
+		public static native ReactElement<?> menu(Map<String, String> attributes);
+
+		public static native ReactElement<?> menu(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> menuitem();
+
+		public static native ReactElement<?> menuitem(Map<String, String> attributes);
+
+		public static native ReactElement<?> menuitem(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> meta();
+
+		public static native ReactElement<?> meta(Map<String, String> attributes);
+
+		public static native ReactElement<?> meta(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> meter();
+
+		public static native ReactElement<?> meter(Map<String, String> attributes);
+
+		public static native ReactElement<?> meter(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> nav();
+
+		public static native ReactElement<?> nav(Map<String, String> attributes);
+
+		public static native ReactElement<?> nav(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> noscript();
+
+		public static native ReactElement<?> noscript(Map<String, String> attributes);
+
+		public static native ReactElement<?> noscript(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> object();
+
+		public static native ReactElement<?> object(Map<String, String> attributes);
+
+		public static native ReactElement<?> object(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> ol();
+
+		public static native ReactElement<?> ol(Map<String, String> attributes);
+
+		public static native ReactElement<?> ol(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> optgroup();
+
+		public static native ReactElement<?> optgroup(Map<String, String> attributes);
+
+		public static native ReactElement<?> optgroup(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> option();
+
+		public static native ReactElement<?> option(Map<String, String> attributes);
+
+		public static native ReactElement<?> option(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> output();
+
+		public static native ReactElement<?> output(Map<String, String> attributes);
+
+		public static native ReactElement<?> output(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> p();
+
+		public static native ReactElement<?> p(Map<String, String> attributes);
+
+		public static native ReactElement<?> p(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> param();
+
+		public static native ReactElement<?> param(Map<String, String> attributes);
+
+		public static native ReactElement<?> param(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> picture();
+
+		public static native ReactElement<?> picture(Map<String, String> attributes);
+
+		public static native ReactElement<?> picture(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> pre();
+
+		public static native ReactElement<?> pre(Map<String, String> attributes);
+
+		public static native ReactElement<?> pre(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> progress();
+
+		public static native ReactElement<?> progress(Map<String, String> attributes);
+
+		public static native ReactElement<?> progress(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> q();
+
+		public static native ReactElement<?> q(Map<String, String> attributes);
+
+		public static native ReactElement<?> q(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> rp();
+
+		public static native ReactElement<?> rp(Map<String, String> attributes);
+
+		public static native ReactElement<?> rp(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> rt();
+
+		public static native ReactElement<?> rt(Map<String, String> attributes);
+
+		public static native ReactElement<?> rt(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> ruby();
+
+		public static native ReactElement<?> ruby(Map<String, String> attributes);
+
+		public static native ReactElement<?> ruby(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> s();
+
+		public static native ReactElement<?> s(Map<String, String> attributes);
+
+		public static native ReactElement<?> s(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> samp();
+
+		public static native ReactElement<?> samp(Map<String, String> attributes);
+
+		public static native ReactElement<?> samp(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> script();
+
+		public static native ReactElement<?> script(Map<String, String> attributes);
+
+		public static native ReactElement<?> script(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> section();
+
+		public static native ReactElement<?> section(Map<String, String> attributes);
+
+		public static native ReactElement<?> section(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> select();
+
+		public static native ReactElement<?> select(Map<String, String> attributes);
+
+		public static native ReactElement<?> select(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> small();
+
+		public static native ReactElement<?> small(Map<String, String> attributes);
+
+		public static native ReactElement<?> small(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> source();
+
+		public static native ReactElement<?> source(Map<String, String> attributes);
+
+		public static native ReactElement<?> source(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> span();
+
+		public static native ReactElement<?> span(Map<String, String> attributes);
+
+		public static native ReactElement<?> span(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> strong();
+
+		public static native ReactElement<?> strong(Map<String, String> attributes);
+
+		public static native ReactElement<?> strong(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> style();
+
+		public static native ReactElement<?> style(Map<String, String> attributes);
+
+		public static native ReactElement<?> style(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> sub();
+
+		public static native ReactElement<?> sub(Map<String, String> attributes);
+
+		public static native ReactElement<?> sub(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> summary();
+
+		public static native ReactElement<?> summary(Map<String, String> attributes);
+
+		public static native ReactElement<?> summary(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> sup();
+
+		public static native ReactElement<?> sup(Map<String, String> attributes);
+
+		public static native ReactElement<?> sup(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> table();
+
+		public static native ReactElement<?> table(Map<String, String> attributes);
+
+		public static native ReactElement<?> table(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> tbody();
+
+		public static native ReactElement<?> tbody(Map<String, String> attributes);
+
+		public static native ReactElement<?> tbody(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> td();
+
+		public static native ReactElement<?> td(Map<String, String> attributes);
+
+		public static native ReactElement<?> td(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> textarea();
+
+		public static native ReactElement<?> textarea(Map<String, String> attributes);
+
+		public static native ReactElement<?> textarea(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> tfoot();
+
+		public static native ReactElement<?> tfoot(Map<String, String> attributes);
+
+		public static native ReactElement<?> tfoot(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> th();
+
+		public static native ReactElement<?> th(Map<String, String> attributes);
+
+		public static native ReactElement<?> th(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> thead();
+
+		public static native ReactElement<?> thead(Map<String, String> attributes);
+
+		public static native ReactElement<?> thead(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> time();
+
+		public static native ReactElement<?> time(Map<String, String> attributes);
+
+		public static native ReactElement<?> time(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> title();
+
+		public static native ReactElement<?> title(Map<String, String> attributes);
+
+		public static native ReactElement<?> title(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> tr();
+
+		public static native ReactElement<?> tr(Map<String, String> attributes);
+
+		public static native ReactElement<?> tr(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> track();
+
+		public static native ReactElement<?> track(Map<String, String> attributes);
+
+		public static native ReactElement<?> track(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> u();
+
+		public static native ReactElement<?> u(Map<String, String> attributes);
+
+		public static native ReactElement<?> u(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> ul();
+
+		public static native ReactElement<?> ul(Map<String, String> attributes);
+
+		public static native ReactElement<?> ul(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> var();
+
+		public static native ReactElement<?> var(Map<String, String> attributes);
+
+		public static native ReactElement<?> var(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> video();
+
+		public static native ReactElement<?> video(Map<String, String> attributes);
+
+		public static native ReactElement<?> video(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> wbr();
+
+		public static native ReactElement<?> wbr(Map<String, String> attributes);
+
+		public static native ReactElement<?> wbr(Map<String, String> attributes, Object... children);
+
+		//SVG Tags
+
+		public static native ReactElement<?> circle();
+
+		public static native ReactElement<?> circle(Map<String, String> attributes);
+
+		public static native ReactElement<?> circle(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> defs();
+
+		public static native ReactElement<?> defs(Map<String, String> attributes);
+
+		public static native ReactElement<?> defs(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> ellipse();
+
+		public static native ReactElement<?> ellipse(Map<String, String> attributes);
+
+		public static native ReactElement<?> ellipse(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> g();
+
+		public static native ReactElement<?> g(Map<String, String> attributes);
+
+		public static native ReactElement<?> g(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> line();
+
+		public static native ReactElement<?> line(Map<String, String> attributes);
+
+		public static native ReactElement<?> line(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> linearGradient();
+
+		public static native ReactElement<?> linearGradient(Map<String, String> attributes);
+
+		public static native ReactElement<?> linearGradient(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> mask();
+
+		public static native ReactElement<?> mask(Map<String, String> attributes);
+
+		public static native ReactElement<?> mask(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> path();
+
+		public static native ReactElement<?> path(Map<String, String> attributes);
+
+		public static native ReactElement<?> path(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> pattern();
+
+		public static native ReactElement<?> pattern(Map<String, String> attributes);
+
+		public static native ReactElement<?> pattern(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> polygon();
+
+		public static native ReactElement<?> polygon(Map<String, String> attributes);
+
+		public static native ReactElement<?> polygon(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> polyline();
+
+		public static native ReactElement<?> polyline(Map<String, String> attributes);
+
+		public static native ReactElement<?> polyline(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> radialGradient();
+
+		public static native ReactElement<?> radialGradient(Map<String, String> attributes);
+
+		public static native ReactElement<?> radialGradient(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> rect();
+
+		public static native ReactElement<?> rect(Map<String, String> attributes);
+
+		public static native ReactElement<?> rect(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> stop();
+
+		public static native ReactElement<?> stop(Map<String, String> attributes);
+
+		public static native ReactElement<?> stop(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> svg();
+
+		public static native ReactElement<?> svg(Map<String, String> attributes);
+
+		public static native ReactElement<?> svg(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> text();
+
+		public static native ReactElement<?> text(Map<String, String> attributes);
+
+		public static native ReactElement<?> text(Map<String, String> attributes, Object... children);
+
+		public static native ReactElement<?> tspan();
+
+		public static native ReactElement<?> tspan(Map<String, String> attributes);
+
+		public static native ReactElement<?> tspan(Map<String, String> attributes, Object... children);
 
 	}
 
