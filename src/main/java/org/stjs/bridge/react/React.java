@@ -38,9 +38,9 @@ public class React {
 	public static native <P extends Props, C extends ReactClass<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props,
 			Object... children);
 
-	public static native ReactElement<?> createElement(String element, Map<String, String> props);
+	public static native ReactElement<?> createElement(String element, Map<String, Object> props);
 
-	public static native ReactElement<?> createElement(String element, Map<String, String> props, Object... children);
+	public static native ReactElement<?> createElement(String element, Map<String, Object> props, Object... children);
 
 	/**
 	 * Clone and return a new ReactElement using element as the starting point. The resulting element will have the original element's props with

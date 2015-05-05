@@ -16,13 +16,14 @@
     </parent>
 
     <properties>
+        <stjs.version>3.1.5-SNAPSHOT</stjs.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.st-js</groupId>
             <artifactId>shared</artifactId>
-            <version>3.1.3</version>
+            <version>${stjs.version}</version>
         </dependency>
 
         <dependency>
