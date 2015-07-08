@@ -14,6 +14,9 @@ public class HelloMessageProps extends Props{
 public class HelloMessage extends ReactClass<HelloMessageProps, State> {
 
     public String displayName = "HelloMessage";
+    
+    // Because of Java limitations, propTypes must be declared as static members
+    public static Map<String, Object> propTypes = $map("name", React.PropTypes.string.isRequired);
 
     @Override
     public ReactElement<?> render() {
