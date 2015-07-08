@@ -1,28 +1,40 @@
 /* global stjs */
 
-(function() {
-    var oldExtend = stjs.extend;
+(function () {
+  "use strict";
+  var oldExtend = stjs.extend;
 
-    stjs.extend = function(_constructor, _super, _implements, _initializer, _typeDescription, _annotations) {
+  stjs.extend = function (_constructor, _super, _implements, _initializer, _typeDescription, _annotations) {
+    // Here we will detect if the class has
+    // the "IsReactClass" or "IsReactMixin"
+    // annotation and call the right method
+    // on the React object.
+    // React only supports inheritance with
+    // mixins, so we won't call stjs.extend
+    if (_annotations && _annotations._ && (_annotations._.IsReactClass || _annotations._.IsReactMixin)) {
+      var method = (_annotations._.IsReactClass) ? "createClass" : "createMixin",
+        statics = {},
+        proto = {};
 
-        // In this method, we go with the idea that a
-        // React Class never extends another one as
-        // Mixins should be used for the matter. Thus,
-        // we don't call extend when we encounter a React Class or Mixin
-        if (_annotations && _annotations._ && (_annotations._.IsReactClass || _annotations._.IsReactMixin) ) {
-            var method = (_annotations._.IsReactClass)? "createClass" : "createMixin",
-                statics = {},
-                proto = {};
+      // Use the STJS initializer to get the methods
+      if (typeof _initializer == "function") {
+        _initializer(statics, proto);
+        proto.statics = statics;
 
-            // Use the STJS initializer to get the methods
-            if(typeof _initializer == "function") {
-                _initializer(statics, proto);
-                proto.statics = statics;
-            }
-
-            return React[method](proto);
+        // Due to a limitation with instance fields
+        // initialization in java, we will take the
+        // statically initialized propTypes and add
+        // them to the prototype
+        if (statics.hasOwnProperty("propTypes")) {
+          proto.propTypes = statics.propTypes;
+          delete statics.propTypes;
         }
+      }
 
-        return oldExtend.apply(null, arguments);
-    };
+      return React[method](proto);
+    }
+
+    // Apply the usual extend on non-React classes
+    return oldExtend.apply(null, arguments);
+  };
 })();

@@ -6,6 +6,8 @@ import org.stjs.bridge.react.internal.ReactClass;
 import org.stjs.bridge.react.internal.ReactComponent;
 import org.stjs.bridge.react.internal.ReactElement;
 import org.stjs.bridge.react.internal.ReactMixin;
+import org.stjs.bridge.react.internal.TypeChecker;
+import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Callback0;
@@ -28,6 +30,8 @@ public class React {
 	 * need to call new on them. They are convenience wrappers that construct backing instances (via new) for you.
 	 */
 	public native static ReactClass<?, ?> createClass(Map<String, Object> description);
+
+	public static native ReactMixin<?, ?> createMixin(Map<String, String> mixin);
 
 	/**
 	 * Create and return a new ReactElement of the given type. The type argument can be either an html tag name string (eg. 'div', 'span', etc),
@@ -884,16 +888,35 @@ public class React {
 		public static native ReactElement<?> tspan(Map<String, Object> attributes);
 
 		public static native ReactElement<?> tspan(Map<String, Object> attributes, Object... children);
-
 	}
 
 	/**
 	 * React.PropTypes includes types that can be used with a component's propTypes object to validate props being passed to your components. For
 	 * more information about propTypes, see Reusable Components.
 	 */
-	//TODO :: finish signature
 	public static class PropTypes {
+		public static TypeChecker array;
+		public static TypeChecker bool;
+		public static TypeChecker func;
+		public static TypeChecker number;
+		public static TypeChecker object;
+		public static TypeChecker string;
 
+		public static TypeChecker any;
+		public static TypeChecker node;
+		public static TypeChecker element;
+
+		public static native TypeChecker arrayOf(Array<TypeChecker> types);
+
+		public static native TypeChecker instanceOf(Class<?> cl);
+
+		public static native TypeChecker objectOf(Array<TypeChecker> types);
+
+		public static native TypeChecker oneOf(Array<String> values);
+
+		public static native TypeChecker oneOfType(Array<TypeChecker> types);
+
+		public static native TypeChecker shape(Map<String, TypeChecker> shape);
 	}
 
 	/**
@@ -911,27 +934,26 @@ public class React {
 		 * empty object.
 		 */
 		public native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback);
-        public native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback, Context context);
 
-        /**
-         * Like React.Children.map() but does not return an object.
-         */
-        public native <V> void forEach(Map<?, V> children, Callback1<V> callback);
-        public native <V> void forEach(Map<?, V> children, Callback1<V> callback, Context context);
+		public native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback, Context context);
 
-        /**
-         * Return the total number of components in children, equal to the number of times that a callback passed to map or forEach would be invoked.
-         */
+		/**
+		 * Like React.Children.map() but does not return an object.
+		 */
+		public native <V> void forEach(Map<?, V> children, Callback1<V> callback);
+
+		public native <V> void forEach(Map<?, V> children, Callback1<V> callback, Context context);
+
+		/**
+		 * Return the total number of components in children, equal to the number of times that a callback passed to map or forEach would be invoked.
+		 */
 		public native Integer count(Object children);
 
-        /**
-         * Return the only child in children. Throws otherwise.
-         */
+		/**
+		 * Return the only child in children. Throws otherwise.
+		 */
 		public native Object only(Object children);
 	}
-
-	//TODO :: finish signature
-	public static native ReactMixin<?, ?> createMixin(Map<String, String> mixin);
 
 	//TODO :: finish signature
 	public static native Object constructAndRenderComponent();
@@ -939,6 +961,7 @@ public class React {
 	//TODO :: finish signature
 	public static native Object constructAndRenderComponentByID();
 
+	//TODO :: finish signature
 	public static native void withContext(Context context, Callback0 callback);
 
 	//TODO :: finish signature
