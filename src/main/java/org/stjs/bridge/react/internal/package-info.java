@@ -1,4 +1,4 @@
-@STJSBridge(sources = "react/react-with-addons.min.js")
+@STJSBridge(sources = {"react/stjs-react.min.js", "react/react-with-addons.min.js"})
 @SyntheticType
 package org.stjs.bridge.react.internal;
 
