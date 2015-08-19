@@ -8,7 +8,7 @@ import org.stjs.javascript.functions.Function0;
 public class ReactClassInterface<P extends Props, S extends State> extends ReactBaseClass<P, S> {
     protected Object context;
 
-    protected P props;
+    public P props;
     protected S state;
 
     /**
