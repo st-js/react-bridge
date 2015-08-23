@@ -1,12 +1,14 @@
 package org.stjs.bridge.react.internal;
 
 import org.stjs.javascript.Map;
-import org.stjs.javascript.dom.Element;
 
 @IsReactClass
 public abstract class ReactClass<P extends Props, S extends State> extends ReactClassInterface<P, S> {
 
-    public Map<String, Element> refs;
+    /**
+     * Hold the reference to the elements that have a "ref" key
+     */
+    public Map<String, ReactComponent> refs;
 
     /**
      * The name used in debug messages
