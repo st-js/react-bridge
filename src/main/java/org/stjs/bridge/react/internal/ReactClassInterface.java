@@ -1,33 +1,32 @@
 package org.stjs.bridge.react.internal;
 
-import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.dom.Element;
-import org.stjs.javascript.functions.Function0;
+import org.stjs.javascript.functions.Callback0;
 
-public class ReactClassInterface<P extends Props, S extends State> extends ReactBaseClass<P, S> {
+abstract public class ReactClassInterface<P extends Props, S extends State> {
+
+    /**
+     * This concept is not documented yet
+     */
     protected Object context;
 
+    /**
+     * Hold the reference to the elements that have a "ref" key
+     */
+    public Map<String, ReactComponent> refs;
+
+    /**
+     * The properties of the react component
+     * This can be seen as the constructor of a class
+     */
     public P props;
+
+    /**
+     * The state of the react component
+     * This can be seen as the protected fields of a class
+     */
     protected S state;
-
-    /**
-     * An array of Mixin objects to include when defining your component.
-     */
-    public Array<Class<? extends ReactMixin>> mixins;
-
-    /**
-     * An object containing properties and methods that should be defined on
-     * the component's constructor instead of its prototype (static methods).
-     */
-    @Deprecated
-    public Map<String, Function0> statics;
-
-    /**
-     * Definition of prop types for this component.
-     */
-    @Deprecated
-    public Map<String, String> propTypes;
 
     /**
      * Definition of context types for this component.
@@ -42,32 +41,9 @@ public class ReactClassInterface<P extends Props, S extends State> extends React
     public Map<String, String> childContextTypes;
 
     /**
-     * Invoked when the component is mounted. Values in the mapping will be set on
-     * `this.props` if that prop is not specified (i.e. using an `in` check).
-     *
-     * This method is invoked before `getInitialState` and therefore cannot rely
-     * on `this.state` or use `this.setState`.
-     */
-    public native P getDefaultProps();
-
-    /**
-     * Invoked once before the component is mounted. The return value will be used
-     * as the initial value of `this.state`.
-     *
-     *   getInitialState: function() {
-     *     return {
-     *       isOn: false,
-     *       fooBaz: new BazFoo()
-     *     }
-     *   }
-     */
-    public native S getInitialState();
-
-    /**
      * Context is an object shared between all Components
      */
     public native Context getChildContext();
-
 
     /**
      * Invoked when the component is initially created and about to be mounted.
@@ -173,5 +149,68 @@ public class ReactClassInterface<P extends Props, S extends State> extends React
      * Sophisticated clients may wish to override this.
      *
      */
-    public native void updateComponent(ReactReconcileTransaction transacton);
+    public native void updateComponent(ReactReconcileTransaction transaction);
+
+    /**
+     * Uses props from `this.props` and state from `this.state` to render the
+     * structure of the component.
+     *
+     * No guarantees are made about when or how often this method is invoked, so
+     * it must not have side effects.
+     *
+     *   render: function() {
+     *     var name = this.props.name;
+     *     return <div>Hello, {name}!</div>;
+     *   }
+     */
+    public abstract ReactElement<?> render();
+
+    //BEGIN ReactComponent
+    /**
+     * Sets a subset of the state. Always use this to mutate
+     * state. You should treat `this.state` as immutable.
+     *
+     * There is no guarantee that `this.state` will be immediately updated, so
+     * accessing `this.state` after calling this method may return the old value.
+     *
+     * There is no guarantee that calls to `setState` will run synchronously,
+     * as they may eventually be batched together.  You can provide an optional
+     * callback that will be executed when the call to setState is actually
+     * completed.
+     *
+     * When a function is provided to setState, it will be called at some point in
+     * the future (not synchronously). It will be called with the up to date
+     * component arguments (state, props, context). These values can be different
+     * from this.* because your function may be called after receiveProps but before
+     * shouldComponentUpdate, and this new state, props, and context will not yet be
+     * assigned to this.
+     *
+     * @param partialState Next partial state or function to
+     *        produce next partial state to be merged with current state.
+     * @param callback Called after state is updated.
+     */
+    protected void setState(S partialState, Callback0 callback) {
+        //Will be replaced on runtime
+    }
+
+    protected void setState(S partialState) {
+        //Will be replaced on runtime
+    }
+
+    /**
+     * Forces an update. This should only be invoked when it is known with
+     * certainty that we are **not** in a DOM transaction.
+     * <p/>
+     * You may want to call this when you know that some deeper aspect of the
+     * component's state has changed but `setState` was not called.
+     * <p/>
+     * This will not invoke `shouldComponentUpdate`, but it will invoke
+     * `componentWillUpdate` and `componentDidUpdate`.
+     *
+     * @param callback Called after update is complete.
+     */
+    protected void forceUpdate(Callback0 callback) {
+        //Will be replaced on runtime
+    }
+    //END ReactComponent
 }

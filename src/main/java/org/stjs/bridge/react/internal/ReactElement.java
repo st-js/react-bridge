@@ -3,7 +3,7 @@ package org.stjs.bridge.react.internal;
 /**
  * ReactClass ready to be rendered
  */
-public class ReactElement<C extends ReactClass<?, ?>>  {
+public class ReactElement<C extends ReactClassInterface<?, ?>>  {
     /**
      * String / ReactElement
      */

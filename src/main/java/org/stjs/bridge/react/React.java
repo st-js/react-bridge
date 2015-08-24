@@ -3,6 +3,7 @@ package org.stjs.bridge.react;
 import org.stjs.bridge.react.internal.Context;
 import org.stjs.bridge.react.internal.Props;
 import org.stjs.bridge.react.internal.ReactClass;
+import org.stjs.bridge.react.internal.ReactClassInterface;
 import org.stjs.bridge.react.internal.ReactComponent;
 import org.stjs.bridge.react.internal.ReactElement;
 import org.stjs.bridge.react.internal.ReactMixin;
@@ -22,7 +23,7 @@ public class React {
 	 * https://facebook.github.io/react/docs/reusable-components.html#es6-classes) for how to use ES6 classes with React. For what methods are
 	 * actually provided by the base class, see the (Component API => https://facebook.github.io/react/docs/component-api.html).
 	 */
-	public static Class<ReactClass<?, ?>> Component;
+	public static Class<Component> Component;
 
 	/**
 	 * Create a component class, given a specification. A component implements a render method which returns one single child. That child may
@@ -37,9 +38,9 @@ public class React {
 	 * Create and return a new ReactElement of the given type. The type argument can be either an html tag name string (eg. 'div', 'span', etc),
 	 * or a ReactClass (created via React.createClass).
 	 */
-	public static native <P extends Props, C extends ReactClass<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props);
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props);
 
-	public static native <P extends Props, C extends ReactClass<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props,
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props,
 			Object... children);
 
 	public static native ReactElement<?> createElement(String element, Map<String, Object> props);
@@ -52,18 +53,18 @@ public class React {
 	 * original element will be preserved. There is no special behavior for merging any props (unlike cloneWithProps). See the v0.13 RC2 blog
 	 * post for additional details.
 	 */
-	public static native <C extends ReactClass<?, ?>> ReactElement<C> cloneElement(ReactElement<C> element);
+	public static native <C extends ReactClassInterface<?, ?>> ReactElement<C> cloneElement(ReactElement<C> element);
 
-	public static native <P extends Props, C extends ReactClass<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props);
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props);
 
-	public static native <P extends Props, C extends ReactClass<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props,
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props,
 			Object... children);
 
 	/**
 	 * Return a function that produces ReactElements of a given type. Like React.createElement, the type argument can be either an html tag name
 	 * string (eg. 'div', 'span', etc), or a ReactClass.
 	 */
-	public static native <P extends Props, C extends ReactClass<P, ?>> Function2<P, Object, ReactElement<C>> createFactory(Class<C> clazz);
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> Function2<P, Object, ReactElement<C>> createFactory(Class<C> clazz);
 
 	public static native Function2<Map<String, String>, Object, ReactElement<?>> createFactory(String type);
 
