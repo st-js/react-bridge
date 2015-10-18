@@ -25,10 +25,13 @@
         // initialization in java, we will take the
         // statically initialized propTypes and add
         // them to the prototype
-        if (statics.hasOwnProperty("propTypes")) {
-          proto.propTypes = statics.propTypes;
-          delete statics.propTypes;
-        }
+        var staticToInstance = ["propTypes", "mixins"];
+        staticToInstance.forEach(function(p){
+	        if (statics.hasOwnProperty(p)) {
+	          proto[p] = statics[p];
+	          delete statics[p];
+	        }
+        });
       }
 
       return React[method](proto);
