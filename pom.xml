@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <stjs.version>3.2.0</stjs.version>
+        <stjs.version>3.2.2</stjs.version>
     </properties>
 
     <dependencies>
