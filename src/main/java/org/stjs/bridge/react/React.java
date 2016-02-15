@@ -934,26 +934,26 @@ public class React {
 		 * be traversed: fn will never be passed the container objects. If children is null or undefined returns null or undefined rather than an
 		 * empty object.
 		 */
-		public native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback);
+		public static native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback);
 
-		public native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback, Context context);
+		public static native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback, Context context);
 
 		/**
 		 * Like React.Children.map() but does not return an object.
 		 */
-		public native <V> void forEach(Map<?, V> children, Callback1<V> callback);
+		public static native <V> void forEach(Map<?, V> children, Callback1<V> callback);
 
-		public native <V> void forEach(Map<?, V> children, Callback1<V> callback, Context context);
+		public static native <V> void forEach(Map<?, V> children, Callback1<V> callback, Context context);
 
 		/**
 		 * Return the total number of components in children, equal to the number of times that a callback passed to map or forEach would be invoked.
 		 */
-		public native Integer count(Object children);
+		public static native Integer count(Object children);
 
 		/**
 		 * Return the only child in children. Throws otherwise.
 		 */
-		public native Object only(Object children);
+		public static native Object only(Object children);
 	}
 
 	//TODO :: finish signature
