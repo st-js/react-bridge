@@ -953,7 +953,7 @@ public class React {
 		/**
 		 * Return the only child in children. Throws otherwise.
 		 */
-		public static native Object only(Object children);
+		public static native <T> T only(Object children);
 	}
 
 	//TODO :: finish signature
