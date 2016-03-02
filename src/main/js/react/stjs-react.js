@@ -18,20 +18,24 @@
 
       // Use the STJS initializer to get the methods
       if (typeof _initializer == "function") {
-        _initializer(statics, proto);
-        proto.statics = statics;
+        if (method === "createMixin") {
+            _initializer(proto, proto);
+        } else {
+            _initializer(statics, proto);
+            proto.statics = statics;
 
-        // Due to a limitation with instance fields
-        // initialization in java, we will take the
-        // statically initialized propTypes and add
-        // them to the prototype
-        var staticToInstance = ["propTypes", "mixins"];
-        staticToInstance.forEach(function(p){
-	        if (statics.hasOwnProperty(p)) {
-	          proto[p] = statics[p];
-	          delete statics[p];
-	        }
-        });
+            // Due to a limitation with instance fields
+            // initialization in java, we will take the
+            // statically initialized propTypes and add
+            // them to the prototype
+            var staticToInstance = ["propTypes", "mixins"];
+            staticToInstance.forEach(function(p){
+                if (statics.hasOwnProperty(p)) {
+                  proto[p] = statics[p];
+                  delete statics[p];
+                }
+            });
+        }
       }
 
       return React[method](proto);
