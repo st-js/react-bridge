@@ -83,8 +83,8 @@ public abstract class ReactClass<P extends Props, S extends State> extends React
      *
      * @param partialProps Subset of the next props.
      * @param callback Called after props are updated.
-     * @deprecated
      */
+    @Deprecated
     public native void setProps(P partialProps, Callback0 callback);
 
     /**
@@ -92,8 +92,8 @@ public abstract class ReactClass<P extends Props, S extends State> extends React
      *
      * @param newProps Subset of the next props.
      * @param callback Called after props are updated.
-     * @deprecated
      */
+    @Deprecated
     public native void replaceProps(P newProps, Callback0 callback);
 
     //END ReactClassMixin

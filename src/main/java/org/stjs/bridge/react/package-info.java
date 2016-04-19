@@ -1,4 +1,4 @@
-@STJSBridge(sources = {"react/stjs-react.min.js", "react/react-with-addons.min.js"})
+@STJSBridge(sources = {"webjar:/stjs-react.min.js", "webjar:/react-with-addons.min.js", "webjar:/react-dom.min.js"})
 package org.stjs.bridge.react;
 
 import org.stjs.javascript.annotation.STJSBridge;

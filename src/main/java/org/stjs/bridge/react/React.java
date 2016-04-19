@@ -18,6 +18,8 @@ import org.stjs.javascript.functions.Function2;
 
 public class React {
 
+	public static String version;
+
 	/**
 	 * This is the base class for React Components when they're defined using ES6 classes. See (Reusable Components =>
 	 * https://facebook.github.io/react/docs/reusable-components.html#es6-classes) for how to use ES6 classes with React. For what methods are
@@ -812,6 +814,12 @@ public class React {
 
 		public static native ReactElement<?> g(Map<String, Object> attributes, Object... children);
 
+		public static native ReactElement<?> image();
+
+		public static native ReactElement<?> image(Map<String, Object> attributes);
+
+		public static native ReactElement<?> image(Map<String, Object> attributes, Object... children);
+
 		public static native ReactElement<?> line();
 
 		public static native ReactElement<?> line(Map<String, Object> attributes);
@@ -921,11 +929,6 @@ public class React {
 	}
 
 	/**
-	 * Configure React's event system to handle touch events on mobile devices.
-	 */
-	public static native void initializeTouchEvents(boolean shouldUseTouch);
-
-	/**
 	 * React.Children provides utilities for dealing with the this.props.children opaque data structure.
 	 */
 	public static class Children {
@@ -954,16 +957,14 @@ public class React {
 		 * Return the only child in children. Throws otherwise.
 		 */
 		public static native <T> T only(Object children);
+
+		/**
+		 * Return the children opaque data structure as a flat array with keys assigned to each child.
+		 * Useful if you want to manipulate collections of children in your render methods,
+		 * especially if you want to reorder or slice this.props.children before passing it down.
+		 */
+		public static native <V> Map<?, V> toArray(Object children);
 	}
-
-	//TODO :: finish signature
-	public static native Object constructAndRenderComponent();
-
-	//TODO :: finish signature
-	public static native Object constructAndRenderComponentByID();
-
-	//TODO :: finish signature
-	public static native void withContext(Context context, Callback0 callback);
 
 	//TODO :: finish signature
 	public static native void __spread();

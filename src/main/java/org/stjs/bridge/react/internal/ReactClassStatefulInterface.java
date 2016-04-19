@@ -1,6 +1,7 @@
 package org.stjs.bridge.react.internal;
 
 import org.stjs.javascript.Map;
+import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Callback0;
 
 /**
@@ -12,7 +13,7 @@ public class ReactClassStatefulInterface<P extends Props, S extends State> {
 	/**
 	 * Hold the reference to the elements that have a "ref" key
 	 */
-	public Map<String, ReactComponent> refs;
+	public Map<String, Element> refs;
 	/**
 	 * The properties of the react component This can be seen as the constructor of a class
 	 */
