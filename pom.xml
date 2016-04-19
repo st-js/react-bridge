@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +16,8 @@
     </parent>
 
     <properties>
-        <stjs.version>3.2.2</stjs.version>
+        <stjs.version>3.3.1</stjs.version>
+        <maven-closure-compiler-plugin.version>1.0.0</maven-closure-compiler-plugin.version>
     </properties>
 
     <dependencies>
@@ -38,10 +40,33 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.dasberg.maven.plugins</groupId>
+                <artifactId>maven-closure-compiler-plugin</artifactId>
+                <version>${maven-closure-compiler-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <js_dir>src/main/js/META-INF/resources/webjars/stjs-react</js_dir>
+                            <js_output_dir>${project.build.outputDirectory}/META-INF/resources/webjars/stjs-react</js_output_dir>
+                            <version>min</version>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <scm>
         <connection>scm:git:https://github.com/onigoetz/react-bridge.git</connection>
         <developerConnection>scm:git:https://github.com/onigoetz/react-bridge.git</developerConnection>
         <url>scm:git:https://github.com/onigoetz/react-bridge</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 </project>
