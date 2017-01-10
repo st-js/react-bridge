@@ -1,17 +1,15 @@
 package org.stjs.bridge.react;
 
+import org.stjs.bridge.react.internal.ComponentClass;
 import org.stjs.bridge.react.internal.Context;
 import org.stjs.bridge.react.internal.Props;
 import org.stjs.bridge.react.internal.ReactClass;
 import org.stjs.bridge.react.internal.ReactClassInterface;
-import org.stjs.bridge.react.internal.ReactComponent;
 import org.stjs.bridge.react.internal.ReactElement;
 import org.stjs.bridge.react.internal.ReactMixin;
 import org.stjs.bridge.react.internal.TypeChecker;
 import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
-import org.stjs.javascript.dom.Element;
-import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Function1;
 import org.stjs.javascript.functions.Function2;
@@ -22,82 +20,61 @@ public class React {
 
 	/**
 	 * This is the base class for React Components when they're defined using ES6 classes. See (Reusable Components =>
-	 * https://facebook.github.io/react/docs/reusable-components.html#es6-classes) for how to use ES6 classes with React. For what methods are
-	 * actually provided by the base class, see the (Component API => https://facebook.github.io/react/docs/component-api.html).
+	 * https://facebook.github.io/react/docs/reusable-components.html#es6-classes) for how to use ES6 classes with
+	 * React. For what methods are actually provided by the base class, see the (Component API =>
+	 * https://facebook.github.io/react/docs/component-api.html).
 	 */
 	public static Class<Component> Component;
 
 	/**
-	 * Create a component class, given a specification. A component implements a render method which returns one single child. That child may
-	 * have an arbitrarily deep child structure. One thing that makes components different than standard prototypal classes is that you don't
-	 * need to call new on them. They are convenience wrappers that construct backing instances (via new) for you.
+	 * Create a component class, given a specification. A component implements a render method which returns one single
+	 * child. That child may have an arbitrarily deep child structure. One thing that makes components different than
+	 * standard prototypal classes is that you don't need to call new on them. They are convenience wrappers that
+	 * construct backing instances (via new) for you.
 	 */
 	public native static ReactClass<?, ?> createClass(Map<String, Object> description);
 
 	public static native ReactMixin<?, ?> createMixin(Map<String, String> mixin);
 
 	/**
-	 * Create and return a new ReactElement of the given type. The type argument can be either an html tag name string (eg. 'div', 'span', etc),
-	 * or a ReactClass (created via React.createClass).
+	 * Create and return a new ReactElement of the given type. The type argument can be either an html tag name string
+	 * (eg. 'div', 'span', etc), or a ReactClass (created via React.createClass).
 	 */
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props);
 
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props,
-			Object... children);
+		Object... children);
+
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(ComponentClass<P> clazz, P props);
+
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(ComponentClass<P> clazz, P props,
+		Object... children);
 
 	public static native ReactElement<?> createElement(String element, Map<String, Object> props);
 
 	public static native ReactElement<?> createElement(String element, Map<String, Object> props, Object... children);
 
 	/**
-	 * Clone and return a new ReactElement using element as the starting point. The resulting element will have the original element's props with
-	 * the new props merged in shallowly. New children will replace existing children. Unlike React.addons.cloneWithProps, key and ref from the
-	 * original element will be preserved. There is no special behavior for merging any props (unlike cloneWithProps). See the v0.13 RC2 blog
-	 * post for additional details.
+	 * Clone and return a new ReactElement using element as the starting point. The resulting element will have the
+	 * original element's props with the new props merged in shallowly. New children will replace existing children.
+	 * Unlike React.addons.cloneWithProps, key and ref from the original element will be preserved. There is no special
+	 * behavior for merging any props (unlike cloneWithProps). See the v0.13 RC2 blog post for additional details.
 	 */
 	public static native <C extends ReactClassInterface<?, ?>> ReactElement<C> cloneElement(ReactElement<C> element);
 
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props);
 
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> cloneElement(ReactElement<C> element, P props,
-			Object... children);
+		Object... children);
 
 	/**
-	 * Return a function that produces ReactElements of a given type. Like React.createElement, the type argument can be either an html tag name
-	 * string (eg. 'div', 'span', etc), or a ReactClass.
+	 * Return a function that produces ReactElements of a given type. Like React.createElement, the type argument can be
+	 * either an html tag name string (eg. 'div', 'span', etc), or a ReactClass.
 	 */
-	public static native <P extends Props, C extends ReactClassInterface<P, ?>> Function2<P, Object, ReactElement<C>> createFactory(Class<C> clazz);
+	public static native <P extends Props, C extends ReactClassInterface<P, ?>> Function2<P, Object, ReactElement<C>> createFactory(
+		Class<C> clazz);
 
 	public static native Function2<Map<String, String>, Object, ReactElement<?>> createFactory(String type);
-
-	/**
-	 * Render a ReactElement into the DOM in the supplied container and return a reference to the component. If the ReactElement was previously
-	 * rendered into container, this will perform an update on it and only mutate the DOM as necessary to reflect the latest React component. If
-	 * the optional callback is provided, it will be executed after the component is rendered or updated.
-	 */
-	public static native <C extends ReactElement<?>> ReactComponent<C> render(C element, Element container);
-
-	public static native <C extends ReactElement<?>> ReactComponent<C> render(C element, Element container, Callback0 callback);
-
-	/**
-	 * Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container,
-	 * calling this function does nothing. Returns true if a component was unmounted and false if there was no component to unmount.
-	 */
-	public static native boolean unmountComponentAtNode(Element container);
-
-	/**
-	 * Render a ReactElement to its initial HTML. This should only be used on the server. React will return an HTML string. You can use this
-	 * method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to
-	 * crawl your pages for SEO purposes. If you call React.render() on a node that already has this server-rendered markup, React will preserve
-	 * it and only attach event handlers, allowing you to have a very performant first-load experience.
-	 */
-	public static native String renderToString(ReactElement<?> element);
-
-	/**
-	 * Similar to renderToString, except this doesn't create extra DOM attributes such as data-react-id, that React uses internally. This is
-	 * useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save lots of bytes.
-	 */
-	public static native String renderToStaticMarkup(ReactElement<?> element);
 
 	/**
 	 * Verifies the object is a ReactElement.
@@ -105,15 +82,8 @@ public class React {
 	public static native boolean isValidElement(Object object);
 
 	/**
-	 * If this component has been mounted into the DOM, this returns the corresponding native browser DOM element. This method is useful for
-	 * reading values out of the DOM, such as form field values and performing DOM measurements. When render returns null or false, findDOMNode
-	 * returns null.
-	 */
-	public static native Element findDOMNode(ReactComponent<?> component);
-
-	/**
-	 * React.DOM provides convenience wrappers around React.createElement for DOM components. These should only be used when not using JSX. For
-	 * example, React.DOM.div(null, 'Hello World!')
+	 * React.DOM provides convenience wrappers around React.createElement for DOM components. These should only be used
+	 * when not using JSX. For example, React.DOM.div(null, 'Hello World!')
 	 */
 	public static class DOM {
 		public static native ReactElement<?> a();
@@ -788,7 +758,7 @@ public class React {
 
 		public static native ReactElement<?> wbr(Map<String, Object> attributes, Object... children);
 
-		//SVG Tags
+		// SVG Tags
 
 		public static native ReactElement<?> circle();
 
@@ -900,8 +870,8 @@ public class React {
 	}
 
 	/**
-	 * React.PropTypes includes types that can be used with a component's propTypes object to validate props being passed to your components. For
-	 * more information about propTypes, see Reusable Components.
+	 * React.PropTypes includes types that can be used with a component's propTypes object to validate props being
+	 * passed to your components. For more information about propTypes, see Reusable Components.
 	 */
 	public static class PropTypes {
 		public static TypeChecker array;
@@ -933,9 +903,9 @@ public class React {
 	 */
 	public static class Children {
 		/**
-		 * Invoke fn on every immediate child contained within children with this set to context. If children is a nested object or array it will
-		 * be traversed: fn will never be passed the container objects. If children is null or undefined returns null or undefined rather than an
-		 * empty object.
+		 * Invoke fn on every immediate child contained within children with this set to context. If children is a
+		 * nested object or array it will be traversed: fn will never be passed the container objects. If children is
+		 * null or undefined returns null or undefined rather than an empty object.
 		 */
 		public static native <V> Map<?, V> map(Map<?, V> children, Function1<V, V> callback);
 
@@ -949,7 +919,8 @@ public class React {
 		public static native <V> void forEach(Map<?, V> children, Callback1<V> callback, Context context);
 
 		/**
-		 * Return the total number of components in children, equal to the number of times that a callback passed to map or forEach would be invoked.
+		 * Return the total number of components in children, equal to the number of times that a callback passed to map
+		 * or forEach would be invoked.
 		 */
 		public static native Integer count(Object children);
 
@@ -959,13 +930,13 @@ public class React {
 		public static native <T> T only(Object children);
 
 		/**
-		 * Return the children opaque data structure as a flat array with keys assigned to each child.
-		 * Useful if you want to manipulate collections of children in your render methods,
-		 * especially if you want to reorder or slice this.props.children before passing it down.
+		 * Return the children opaque data structure as a flat array with keys assigned to each child. Useful if you
+		 * want to manipulate collections of children in your render methods, especially if you want to reorder or slice
+		 * this.props.children before passing it down.
 		 */
 		public static native <V> Map<?, V> toArray(Object children);
 	}
 
-	//TODO :: finish signature
+	// TODO :: finish signature
 	public static native void __spread();
 }

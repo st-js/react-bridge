@@ -12,7 +12,7 @@ public abstract class ReactMixin<P extends Props, S extends State> extends React
 	}
 
 	@Override
-	public void componentDidMount(Element element) {
+	public void componentDidMount() {
 
 	}
 
