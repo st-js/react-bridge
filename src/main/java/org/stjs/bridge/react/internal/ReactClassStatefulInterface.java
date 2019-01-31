@@ -3,6 +3,7 @@ package org.stjs.bridge.react.internal;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Callback0;
+import org.stjs.javascript.functions.Function2;
 
 /**
  * The statefull react class representation with all related methods.
@@ -48,6 +49,14 @@ public class ReactClassStatefulInterface<P extends Props, S extends State> {
 	}
 
 	protected void setState(S partialState) {
+		// Will be replaced on runtime
+	}
+
+	protected void setState(Function2<P, S, S> updater) {
+		// Will be replaced on runtime
+	}
+
+	protected void setState(Function2<P, S, S> updater, Callback0 callback) {
 		// Will be replaced on runtime
 	}
 }

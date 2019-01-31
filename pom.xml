@@ -4,7 +4,7 @@
 
     <groupId>org.st-js.bridge</groupId>
     <artifactId>react</artifactId>
-    <version>15.3.2.bv0-SNAPSHOT</version>
+    <version>16.7.0.bv0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Strongly-typed JS - Facebook React Bridge Library</name>
 
@@ -16,7 +16,8 @@
 
     <properties>
         <stjs.version>3.3.1</stjs.version>
-        <maven-closure-compiler-plugin.version>1.0.0</maven-closure-compiler-plugin.version>
+
+        <webjar.react.version>16.7.0</webjar.react.version>
     </properties>
 
     <dependencies>
@@ -32,35 +33,18 @@
             <version>5.0.bv3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.webjars.bower</groupId>
-            <artifactId>react</artifactId>
-            <version>15.3.2</version>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>react</artifactId>
+			<version>${webjar.react.version}</version>
+		</dependency>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.dasberg.maven.plugins</groupId>
-                <artifactId>maven-closure-compiler-plugin</artifactId>
-                <version>${maven-closure-compiler-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                        <configuration>
-                            <js_dir>src/main/js/META-INF/resources/webjars/stjs-react</js_dir>
-                            <js_output_dir>${project.build.outputDirectory}/META-INF/resources/webjars/stjs-react</js_output_dir>
-                            <version>min</version>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>react-dom</artifactId>
+			<version>${webjar.react.version}</version>
+		</dependency>
+    </dependencies>
 
     <scm>
         <connection>scm:git:https://github.com/onigoetz/react-bridge.git</connection>

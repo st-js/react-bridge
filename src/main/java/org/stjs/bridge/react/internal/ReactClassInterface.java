@@ -39,24 +39,16 @@ abstract public class ReactClassInterface<P extends Props, S extends State> exte
 	public native void componentWillReceiveProps(P nextProps);
 
 	@Override
-	public native boolean shouldComponentUpdate(P nextProps, S nextState, Context nextContext);
+	public native boolean shouldComponentUpdate(P nextProps, S nextState);
 
 	@Override
-	public native boolean componentWillUpdate(P nextProps, S nextState, Context nextContext, ReactReconcileTransaction transaction);
+	public native boolean componentWillUpdate(P nextProps, S nextState);
 
 	@Override
-	public native void componentDidUpdate(P prevProps, S prevState, Context prevContext, Element rootNode);
+	public native void componentDidUpdate(P prevProps, S prevState, Object snapshot);
 
 	@Override
 	public native void componentWillUnmount();
-
-	/**
-	 * Updates the component's currently mounted DOM representation.
-	 *
-	 * By default, this implements React's rendering and reconciliation algorithm. Sophisticated clients may wish to override this.
-	 *
-	 */
-	public native void updateComponent(ReactReconcileTransaction transaction);
 
 	/**
 	 * Uses props from `this.props` and state from `this.state` to render the structure of the component.

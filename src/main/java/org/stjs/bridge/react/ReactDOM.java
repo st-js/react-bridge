@@ -29,19 +29,29 @@ public class ReactDOM {
 
 	public static native <C extends ReactElement<?>> ReactComponent<C> render(Component<?, ?> element, Element container);
 
-	/**
-	 * Render a ReactElement to its initial HTML. This should only be used on the server. React will return an HTML string. You can use this method to generate
-	 * HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO
-	 * purposes. If you call React.render() on a node that already has this server-rendered markup, React will preserve it and only attach event handlers,
-	 * allowing you to have a very performant first-load experience.
-	 */
-	public static native String renderToString(ReactElement<?> element);
 
 	/**
-	 * Similar to renderToString, except this doesn't create extra DOM attributes such as data-react-id, that React uses internally. This is useful if you want
-	 * to use React as a simple static page generator, as stripping away the extra attributes can save lots of bytes.
+	 * https://reactjs.org/docs/react-dom.html#hydrate
 	 */
-	public static native String renderToStaticMarkup(ReactElement<?> element);
+	public static native <C extends ReactElement<?>> ReactComponent<C> hydrate(C element, Element container);
+
+	/**
+	 * https://reactjs.org/docs/react-dom.html#hydrate
+	 */
+	public static native <C extends ReactElement<?>> ReactComponent<C> hydrate(C element, Element container, Callback0 callback);
+
+	/**
+	 * https://reactjs.org/docs/react-dom.html#hydrate
+	 */
+	public static native <C extends ReactElement<?>> ReactComponent<C> hydrate(Component<?, ?> element, Element container);
+
+	/**
+	 * Creates a portal.
+	 * Portals provide a way to render children into a DOM node that exists outside the hierarchy of the DOM component.
+	 *
+	 * https://reactjs.org/docs/react-dom.html#createportal
+	 */
+	public static native Void createPortal(ReactElement<?> element, Element container);
 
 	/**
 	 * Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this

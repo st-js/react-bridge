@@ -4,7 +4,7 @@ import org.stjs.javascript.dom.Element;
 
 /**
  * The interface to represent all React class lifecycle methods.
- * 
+ *
  * @param <P>
  *            the properties class
  * @param <S>
@@ -47,10 +47,9 @@ public interface ReactClassLifecycleInterface<P extends Props, S extends State> 
 	 *
 	 * @param nextProps
 	 * @param nextState
-	 * @param nextContext
 	 * @return True if the component should update.
 	 */
-	boolean shouldComponentUpdate(P nextProps, S nextState, Context nextContext);
+	boolean shouldComponentUpdate(P nextProps, S nextState);
 
 	/**
 	 * Invoked when the component is about to update due to a transition from `this.props`, `this.state` and `this.context` to `nextProps`, `nextState` and
@@ -62,10 +61,8 @@ public interface ReactClassLifecycleInterface<P extends Props, S extends State> 
 	 *
 	 * @param nextProps
 	 * @param nextState
-	 * @param nextContext
-	 * @param transaction
 	 */
-	boolean componentWillUpdate(P nextProps, S nextState, Context nextContext, ReactReconcileTransaction transaction);
+	boolean componentWillUpdate(P nextProps, S nextState);
 
 	/**
 	 * Invoked when the component's DOM representation has been updated.
@@ -74,11 +71,9 @@ public interface ReactClassLifecycleInterface<P extends Props, S extends State> 
 	 *
 	 * @param prevProps
 	 * @param prevState
-	 * @param prevContext
-	 * @param rootNode
-	 *            DOM element representing the component.
+	 * @param snapshot
 	 */
-	void componentDidUpdate(P prevProps, S prevState, Context prevContext, Element rootNode);
+	void componentDidUpdate(P prevProps, S prevState, Object snapshot);
 
 	/**
 	 * Invoked when the component is about to be removed from its parent and have its DOM representation destroyed.

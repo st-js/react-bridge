@@ -10,18 +10,13 @@ import org.stjs.javascript.annotation.STJSBridge;
 
 @Namespace("React")
 @STJSBridge
-public abstract class Component<P extends Props, S extends State> extends ReactClassInterface<P, S> {
-
-	/**
-	 * Definition of prop types for this component.
-	 */
-	public static Map<String, TypeChecker> propTypes;
+public abstract class PureComponent<P extends Props, S extends State> extends Component<P, S> {
 
 	/**
 	 * Default constructor
 	 * @param props
 	 */
-	public Component(P props) {
-		this.props = props;
+	public PureComponent(P props) {
+		super(props);
 	}
 }

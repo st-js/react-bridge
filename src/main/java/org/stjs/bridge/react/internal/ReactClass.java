@@ -1,6 +1,5 @@
 package org.stjs.bridge.react.internal;
 
-import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.functions.Callback0;
 import org.stjs.javascript.functions.Function0;
@@ -19,11 +18,6 @@ public abstract class ReactClass<P extends Props, S extends State> extends React
      * The name used in debug messages
      */
     public String displayName;
-
-    /**
-     * An array of Mixin objects to include when defining your component.
-     */
-    public Array<Class<? extends ReactMixin>> mixins;
 
     /**
      * An object containing properties and methods that should be defined on
