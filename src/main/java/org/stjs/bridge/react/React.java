@@ -1,11 +1,8 @@
 package org.stjs.bridge.react;
 
-import org.stjs.bridge.react.internal.ComponentClass;
 import org.stjs.bridge.react.internal.Props;
 import org.stjs.bridge.react.internal.ReactClassInterface;
 import org.stjs.bridge.react.internal.ReactElement;
-import org.stjs.bridge.react.internal.TypeChecker;
-import org.stjs.javascript.Array;
 import org.stjs.javascript.Map;
 import org.stjs.javascript.functions.Callback1;
 import org.stjs.javascript.functions.Function1;
@@ -25,17 +22,12 @@ public class React {
 
 	/**
 	 * Create and return a new ReactElement of the given type. The type argument can be either an html tag name string
-	 * (eg. 'div', 'span', etc), or a ReactClass (created via React.createClass).
+	 * (eg. 'div', 'span', etc), or a ReactComponent (created via extends React.Component).
 	 */
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props);
 
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(Class<C> clazz, P props,
 		Object... children);
-
-	/*public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(ComponentClass<P> clazz, P props);
-
-	public static native <P extends Props, C extends ReactClassInterface<P, ?>> ReactElement<C> createElement(ComponentClass<P> clazz, P props,
-		Object... children);*/
 
 	public static native ReactElement<?> createElement(String element, Map<String, Object> props);
 
@@ -56,7 +48,7 @@ public class React {
 
 	/**
 	 * Return a function that produces ReactElements of a given type. Like React.createElement, the type argument can be
-	 * either an html tag name string (eg. 'div', 'span', etc), or a ReactClass.
+	 * either an html tag name string (eg. 'div', 'span', etc), or a React.Component.
 	 */
 	public static native <P extends Props, C extends ReactClassInterface<P, ?>> Function2<P, Object, ReactElement<C>> createFactory(
 		Class<C> clazz);
@@ -67,35 +59,6 @@ public class React {
 	 * Verifies the object is a ReactElement.
 	 */
 	public static native boolean isValidElement(Object object);
-
-	/**
-	 * React.PropTypes includes types that can be used with a component's propTypes object to validate props being
-	 * passed to your components. For more information about propTypes, see Reusable Components.
-	 */
-	public static class PropTypes {
-		public static TypeChecker array;
-		public static TypeChecker bool;
-		public static TypeChecker func;
-		public static TypeChecker number;
-		public static TypeChecker object;
-		public static TypeChecker string;
-
-		public static TypeChecker any;
-		public static TypeChecker node;
-		public static TypeChecker element;
-
-		public static native TypeChecker arrayOf(Array<TypeChecker> types);
-
-		public static native TypeChecker instanceOf(Class<?> cl);
-
-		public static native TypeChecker objectOf(Array<TypeChecker> types);
-
-		public static native TypeChecker oneOf(Array<String> values);
-
-		public static native TypeChecker oneOfType(Array<TypeChecker> types);
-
-		public static native TypeChecker shape(Map<String, TypeChecker> shape);
-	}
 
 	/**
 	 * React.Children provides utilities for dealing with the this.props.children opaque data structure.

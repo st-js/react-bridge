@@ -1,7 +1,6 @@
 package org.stjs.bridge.react.internal;
 
 import org.stjs.javascript.Map;
-import org.stjs.javascript.dom.Element;
 import org.stjs.javascript.functions.Callback0;
 
 abstract public class ReactClassInterface<P extends Props, S extends State> extends ReactClassStatefulInterface<P, S> implements

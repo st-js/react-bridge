@@ -18,6 +18,7 @@
         <stjs.version>3.3.1</stjs.version>
 
         <webjar.react.version>16.7.0</webjar.react.version>
+        <webjar.proptypes.version>15.6.2</webjar.proptypes.version>
     </properties>
 
     <dependencies>
@@ -43,6 +44,12 @@
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>react-dom</artifactId>
 			<version>${webjar.react.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>prop-types</artifactId>
+			<version>${webjar.proptypes.version}</version>
 		</dependency>
     </dependencies>
 

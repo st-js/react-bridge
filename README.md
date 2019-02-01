@@ -3,7 +3,7 @@ Strongly-Typed Javascript (STJS) Bridge to Facebook's react JS
 
 The STJS bridge to Facebook's React JS gives you access to this great library using a Java syntax.
 
-Supports both `React.createClass` and `extends React.Component`
+Supports ES6 React Classes
 
 ## `extends React.Component` style
 
@@ -18,7 +18,7 @@ public class HelloMessage extends Component<HelloMessageProps, State> {
 
     public String displayName = "HelloMessage";
 
-    public static Map<String, TypeChecker> propTypes = $map("name", React.PropTypes.string.isRequired);
+    public static Map<String, TypeChecker> propTypes = $map("name", PropTypes.string.isRequired);
 
     @Override
     public ReactElement<?> render() {
@@ -40,3 +40,8 @@ React.render(React.createElement(HelloMessage, new HelloMessageProps() {{ name =
  </dependency>
  ```
 2. Enjoy, you're good to go.
+
+## Migrating from React 0.14 to React 16
+
+* `ReactClass` doesn't exist anymore, Please use `extends React.Component`. You can follow any guide that helps convert from `React.createClass` to ES6 Classes, for example : https://daveceddia.com/convert-createclass-to-es6-class/
+* `React.PropTypes` is now just `PropTypes` update your dependencies

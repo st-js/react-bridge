@@ -1,7 +1,5 @@
 package org.stjs.bridge.react.internal;
 
-import org.stjs.javascript.dom.Element;
-
 /**
  * The interface to represent all React class lifecycle methods.
  *

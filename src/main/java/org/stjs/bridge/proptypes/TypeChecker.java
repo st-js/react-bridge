@@ -1,4 +1,4 @@
-package org.stjs.bridge.react.internal;
+package org.stjs.bridge.proptypes;
 
 /**
  * (c) Swissquote 08.07.15
