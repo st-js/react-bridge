@@ -13,9 +13,9 @@ public class React {
 	public static String version;
 
 	/**
-	 * This is the base class for React Components when they're defined using ES6 classes. See (Reusable Components =>
+	 * This is the base class for React Components when they're defined using ES6 classes. See (Reusable Components:
 	 * https://facebook.github.io/react/docs/reusable-components.html#es6-classes) for how to use ES6 classes with
-	 * React. For what methods are actually provided by the base class, see the (Component API =>
+	 * React. For what methods are actually provided by the base class, see the (Component API:
 	 * https://facebook.github.io/react/docs/component-api.html).
 	 */
 	public static Class<Component> Component;

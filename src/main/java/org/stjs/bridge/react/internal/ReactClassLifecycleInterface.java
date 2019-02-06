@@ -28,7 +28,7 @@ public interface ReactClassLifecycleInterface<P extends Props, S extends State> 
 	 *
 	 * Use this as an opportunity to react to a prop transition by updating the state using `this.setState`. Current props are accessed via `this.props`.
 	 *
-	 * componentWillReceiveProps: function(nextProps, nextContext) { this.setState({ likesIncreasing: nextProps.likeCount > this.props.likeCount }); }
+	 * componentWillReceiveProps: function(nextProps, nextContext) { this.setState({ likesIncreasing: nextProps.likeCount &lt; this.props.likeCount }); }
 	 *
 	 * NOTE: There is no equivalent `componentWillReceiveState`. An incoming prop transition may cause a state change, but the opposite is not true. If you need
 	 * it, you are probably looking for `componentWillUpdate`.

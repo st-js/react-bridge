@@ -62,9 +62,9 @@ abstract public class ReactClassInterface<P extends Props, S extends State> exte
 
 	/**
 	 * Forces an update. This should only be invoked when it is known with certainty that we are **not** in a DOM transaction.
-	 * <p/>
+	 * <p>
 	 * You may want to call this when you know that some deeper aspect of the component's state has changed but `setState` was not called.
-	 * <p/>
+	 * <p>
 	 * This will not invoke `shouldComponentUpdate`, but it will invoke `componentWillUpdate` and `componentDidUpdate`.
 	 *
 	 * @param callback
